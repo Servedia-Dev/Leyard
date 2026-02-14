@@ -3,7 +3,7 @@ const navItems = [
   { label: 'Accueil', href: '/' },
   { label: 'Produits', href: '/produits' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'À propos', href: '/a-propos' },
+  { label: 'A propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
 ];
 ---
@@ -11,22 +11,8 @@ const navItems = [
 <header class="header" id="header">
   <div class="header-inner container">
     <a href="/" class="logo">
-      <span class="logo-icon">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-          <rect width="32" height="32" rx="6" fill="url(#logo-gradient)"/>
-          <text x="6" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="white">L</text>
-          <defs>
-            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
-              <stop offset="0%" stop-color="#6C2BD9"/>
-              <stop offset="100%" stop-color="#06B6D4"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-      <span class="logo-text">
-        <span class="logo-name">LEYARD</span>
-        <span class="logo-sub">EUROPE</span>
-      </span>
+      <span class="logo-text">LEYARD</span>
+      <span class="logo-sub">COMPLETE</span>
     </a>
 
     <nav class="nav" id="nav">
@@ -48,22 +34,14 @@ const navItems = [
 
 <style>
   .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 1rem 0;
-    transition: all var(--transition-base);
-    background: transparent;
-  }
-
-  .header.scrolled {
-    background: rgba(10, 10, 15, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #ffffff;
     border-bottom: 1px solid var(--color-border);
-    padding: 0.6rem 0;
+    padding: 0;
   }
 
   .header-inner {
@@ -71,33 +49,27 @@ const navItems = [
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    height: 70px;
   }
 
   .logo {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    z-index: 10;
-  }
-
-  .logo-text {
-    display: flex;
     flex-direction: column;
+    text-decoration: none;
     line-height: 1.1;
   }
 
-  .logo-name {
-    font-size: 1.15rem;
+  .logo-text {
+    font-size: 1.3rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--color-text);
   }
 
   .logo-sub {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     font-weight: 500;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     color: var(--color-text-muted);
     text-transform: uppercase;
   }
@@ -109,47 +81,27 @@ const navItems = [
   }
 
   .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.85rem;
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--color-text-secondary);
     border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
-    position: relative;
+    transition: color var(--transition-fast);
   }
 
   .nav-link:hover {
-    color: var(--color-text);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    border-radius: 2px;
-    transition: width var(--transition-base);
-  }
-
-  .nav-link:hover::after {
-    width: 60%;
+    color: var(--color-primary);
   }
 
   .header-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-    z-index: 10;
   }
 
   .btn-sm {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1.15rem;
+    font-size: 0.82rem;
   }
 
   .menu-toggle {
@@ -164,7 +116,7 @@ const navItems = [
 
   .menu-toggle span {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: var(--color-text);
     border-radius: 2px;
@@ -182,11 +134,11 @@ const navItems = [
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(10, 10, 15, 0.97);
-      backdrop-filter: blur(20px);
+      background: #ffffff;
       opacity: 0;
       pointer-events: none;
       transition: opacity var(--transition-base);
+      z-index: 100;
     }
 
     .nav.open {
@@ -195,12 +147,13 @@ const navItems = [
     }
 
     .nav-link {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       padding: 0.75rem 1.5rem;
     }
 
     .menu-toggle {
       display: flex;
+      z-index: 110;
     }
 
     .header-actions .btn {
@@ -210,24 +163,12 @@ const navItems = [
 </style>
 
 <script>
-  // Scroll effect
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  });
-
-  // Mobile menu
   const toggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('nav');
   toggle?.addEventListener('click', () => {
     nav?.classList.toggle('open');
   });
 
-  // Close mobile menu on link click
   nav?.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       nav?.classList.remove('open');

@@ -13,7 +13,7 @@ const timeline = [
 const values = [
   {
     title: 'Innovation',
-    description: "Plus de 3000 brevets deposes. La R&D est au cour de notre ADN pour toujours repousser les limites du possible.",
+    description: "Plus de 3000 brevets deposes. La R&D est au coeur de notre ADN pour toujours repousser les limites du possible.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
   },
   {
@@ -37,14 +37,9 @@ const values = [
 <Layout title="A propos" description="Decouvrez Leyard Europe, leader mondial de l'affichage LED avec plus de 30 ans d'expertise.">
 
   <section class="page-hero">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
     <div class="container">
-      <div class="badge">
-        <span class="dot"></span>
-        Notre histoire
-      </div>
-      <h1>Leader mondial <span class="gradient-text">depuis 1995</span></h1>
+      <span class="section-label">Notre histoire</span>
+      <h1>Leader mondial depuis 1995</h1>
       <p class="page-hero-desc">
         Leyard cree, fabrique et deploie des solutions d'affichage LED
         de pointe dans plus de 150 pays a travers le monde.
@@ -53,7 +48,7 @@ const values = [
   </section>
 
   <!-- Stats -->
-  <section class="section stats-section">
+  <section class="section">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-block">
@@ -77,10 +72,10 @@ const values = [
   </section>
 
   <!-- Values -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Nos <span class="gradient-text">valeurs</span></h2>
+        <h2>Nos valeurs</h2>
         <p>Les piliers qui guident chacune de nos actions et decisions.</p>
       </div>
       <div class="values-grid">
@@ -96,15 +91,15 @@ const values = [
   </section>
 
   <!-- Timeline -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Notre <span class="gradient-text">parcours</span></h2>
+        <h2>Notre parcours</h2>
         <p>Les etapes cles qui ont forge le leader mondial de l'affichage LED.</p>
       </div>
       <div class="timeline">
-        {timeline.map((item, i) => (
-          <div class="timeline-item" style={`--index: ${i}`}>
+        {timeline.map(item => (
+          <div class="timeline-item">
             <div class="timeline-marker">
               <span class="timeline-dot"></span>
             </div>
@@ -123,75 +118,42 @@ const values = [
 
 <style>
   .page-hero {
-    position: relative;
-    padding: 10rem 0 4rem;
-    text-align: center;
-    overflow: hidden;
+    padding: 4rem 0 3rem;
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .hero-glow-1 {
-    position: absolute;
-    top: 0;
-    left: 30%;
-    width: 500px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(108, 43, 217, 0.1) 0%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-  }
-
-  .hero-glow-2 {
-    position: absolute;
-    top: 20%;
-    right: 20%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.07) 0%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-  }
-
-  .page-hero .badge { margin-bottom: 1.5rem; }
-
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    display: inline-block;
+  .page-hero h1 {
+    margin-bottom: 0.75rem;
   }
 
   .page-hero-desc {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     max-width: 500px;
-    margin: 0 auto;
   }
 
   /* Stats */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .stat-block {
     text-align: center;
-    padding: 2.5rem 1.5rem;
-    background: var(--gradient-card);
+    padding: 2rem 1.25rem;
+    background: #ffffff;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
   }
 
   .stat-val {
     display: block;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
     line-height: 1.2;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
   }
 
   .stat-lbl {
@@ -201,58 +163,57 @@ const values = [
   }
 
   /* Values */
+  .section-alt {
+    background: var(--color-bg-alt);
+  }
+
   .values-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .value-card {
-    padding: 2rem;
-    background: var(--color-bg-secondary);
+    padding: 1.75rem;
+    background: #ffffff;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base);
   }
 
   .value-card:hover {
-    border-color: rgba(108, 43, 217, 0.2);
-    transform: translateY(-2px);
+    border-color: var(--color-primary-light);
   }
 
   .value-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-glow);
-    border: 1px solid rgba(108, 43, 217, 0.2);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    margin-bottom: 1.25rem;
-    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+    color: var(--color-primary);
   }
 
   .value-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
     color: var(--color-text);
   }
 
   .value-card p {
     font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.65;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
   }
 
   /* Timeline */
-  .section-alt {
-    background: var(--color-bg-secondary);
-  }
-
   .timeline {
     position: relative;
-    padding-left: 3rem;
+    padding-left: 2.5rem;
   }
 
   .timeline::before {
@@ -262,12 +223,12 @@ const values = [
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--color-primary), var(--color-accent), transparent);
+    background: var(--color-border);
   }
 
   .timeline-item {
     position: relative;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
   }
 
   .timeline-item:last-child {
@@ -276,7 +237,7 @@ const values = [
 
   .timeline-marker {
     position: absolute;
-    left: -3rem;
+    left: -2.5rem;
     top: 0.25rem;
     width: 24px;
     height: 24px;
@@ -286,34 +247,33 @@ const values = [
   }
 
   .timeline-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: var(--gradient-primary);
-    box-shadow: 0 0 12px rgba(108, 43, 217, 0.4);
+    background: var(--color-primary);
   }
 
   .timeline-year {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 700;
-    padding: 0.2rem 0.7rem;
-    background: var(--gradient-glow);
-    border: 1px solid rgba(108, 43, 217, 0.2);
-    border-radius: 100px;
-    color: var(--color-primary-light);
-    margin-bottom: 0.5rem;
+    padding: 0.15rem 0.6rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
   }
 
   .timeline-content h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.35rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
     color: var(--color-text);
   }
 
   .timeline-content p {
     font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     line-height: 1.6;
   }
 
