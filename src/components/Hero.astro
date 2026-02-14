@@ -2,146 +2,248 @@
 ---
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <span class="section-label">Packages tout-en-un LED</span>
-      <h1>Des ecrans LED professionnels, cles en main</h1>
-      <p class="hero-description">
-        Leyard Complete propose des packages tout-en-un incluant mecanique, cabinets,
-        cables, electronique, finitions et pieces de rechange. Tout est inclus, aucun cout cache.
-      </p>
-      <div class="hero-actions">
-        <a href="/produits" class="btn btn-primary">
-          Decouvrir nos produits
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="/contact" class="btn btn-secondary">Demander un devis</a>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-badge">Packages tout-en-un LED</span>
+        <h1>Des ecrans LED<br/>professionnels,<br/><span class="hero-accent">cles en main</span></h1>
+        <p class="hero-description">
+          Leyard Complete propose des packages tout-en-un incluant mecanique, cabinets,
+          cables, electronique, finitions et pieces de rechange. Tout est inclus, aucun cout cache.
+        </p>
+        <div class="hero-actions">
+          <a href="/produits" class="btn btn-primary btn-lg">
+            Decouvrir nos produits
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/contact" class="btn btn-secondary btn-lg">Demander un devis</a>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-value">9</span>
-          <span class="stat-label">Series de produits</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value">150+</span>
-          <span class="stat-label">Pays desservis</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value">N°1</span>
-          <span class="stat-label">Mondial affichage LED</span>
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img
+            src="https://complete.leyard.fr/wp-content/uploads/2024/05/vds-complete-136-fhd.jpg"
+            alt="Ecran LED Leyard VDS Complete"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
-    <div class="hero-image">
-      <img
-        src="https://complete.leyard.fr/wp-content/uploads/2024/05/vds-complete-136-fhd.jpg"
-        alt="Ecran LED Leyard VDS Complete"
-        loading="eager"
-      />
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">9</span>
+        <span class="stat-label">Series de produits</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">150+</span>
+        <span class="stat-label">Pays desservis</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">N°1</span>
+        <span class="stat-label">Mondial affichage LED</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">24/7</span>
+        <span class="stat-label">Support technique</span>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding: 4rem 0;
-    background: var(--color-bg-alt);
-    border-bottom: 1px solid var(--color-border);
+    padding: 5rem 0 3rem;
+    background: linear-gradient(180deg, #1a1033 0%, #2d1b4e 100%);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .hero-grid {
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(127, 84, 179, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
+    margin-bottom: 3.5rem;
+    position: relative;
   }
 
-  .hero-text h1 { margin-bottom: 1rem; }
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-accent {
+    color: #b794e0;
+  }
 
   .hero-description {
-    font-size: 1.05rem;
-    margin-bottom: 1.75rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 480px;
   }
 
   .hero-actions {
     display: flex;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
+    gap: 0.85rem;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .hero .btn-primary {
+    background: #7f54b3;
+    border-color: #7f54b3;
+    color: #fff;
+  }
+
+  .hero .btn-primary:hover {
+    background: #6a42a0;
+    border-color: #6a42a0;
+  }
+
+  .hero .btn-secondary {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+  }
+
+  .hero .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image-wrapper {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .hero-stats {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.75rem 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    position: relative;
   }
 
   .stat-value {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
-    color: var(--color-text);
+    color: #ffffff;
     line-height: 1.2;
   }
 
   .stat-label {
     font-size: 0.78rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.55);
     font-weight: 500;
   }
 
   .stat-divider {
     width: 1px;
     height: 36px;
-    background: var(--color-border);
-  }
-
-  .hero-image {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: #f0f0f0;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    background: rgba(255, 255, 255, 0.15);
   }
 
   @media (max-width: 900px) {
-    .hero-grid {
+    .hero { padding: 3.5rem 0 2.5rem; }
+
+    .hero-inner {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
-    .hero-text { text-align: center; }
+    .hero-text {
+      text-align: center;
+    }
+
+    .hero-text h1 { font-size: 2.25rem; }
+
+    .hero-description {
+      max-width: 100%;
+    }
 
     .hero-actions {
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .hero-stats { justify-content: center; }
+    .hero-stats {
+      gap: 1.75rem;
+    }
 
-    .hero-image {
-      max-width: 550px;
+    .hero-visual {
+      max-width: 500px;
       margin: 0 auto;
     }
   }
 
   @media (max-width: 480px) {
+    .hero-text h1 { font-size: 1.85rem; }
+
     .hero-stats {
-      flex-direction: column;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      justify-content: space-around;
     }
 
-    .stat-divider {
-      width: 40px;
-      height: 1px;
-    }
+    .stat-divider { display: none; }
 
     .hero-actions {
       flex-direction: column;
