@@ -38,8 +38,8 @@
     </div>
     <div class="hero-image">
       <img
-        src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=800&h=600&fit=crop&q=80"
-        alt="Ecran LED professionnel dans un espace moderne"
+        src="https://complete.leyard.fr/wp-content/uploads/2024/05/vds-complete-136-fhd.jpg"
+        alt="Ecran LED Leyard VDS Complete"
         loading="eager"
       />
     </div>
@@ -60,9 +60,7 @@
     align-items: center;
   }
 
-  .hero-text h1 {
-    margin-bottom: 1rem;
-  }
+  .hero-text h1 { margin-bottom: 1rem; }
 
   .hero-description {
     font-size: 1.05rem;
@@ -104,15 +102,13 @@
   .hero-image {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    background: #f0f0f0;
   }
 
   .hero-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
-    aspect-ratio: 4/3;
   }
 
   @media (max-width: 900px) {
@@ -121,18 +117,14 @@
       gap: 2rem;
     }
 
-    .hero-text {
-      text-align: center;
-    }
+    .hero-text { text-align: center; }
 
     .hero-actions {
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .hero-stats {
-      justify-content: center;
-    }
+    .hero-stats { justify-content: center; }
 
     .hero-image {
       max-width: 550px;

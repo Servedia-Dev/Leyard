@@ -5,42 +5,42 @@ const products = [
     category: 'All-in-One',
     description: "Colonne LED d'entree de gamme avec fonctions PIP integrees. Ideale pour les salles de reunion.",
     pitch: '0.9 - 2.5mm',
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2025/01/M135v2.png',
   },
   {
     name: 'Serie URL',
     category: 'All-in-One',
     description: "Colonne LED tactile avec processeur PIP premium. L'experience interactive ultime.",
     pitch: '0.9 - 1.8mm',
-    image: 'https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2023/06/URL-e1688143654652.png',
   },
   {
     name: 'VDS (COB)',
     category: 'Cabinet',
     description: "Technologie COB de pointe avec option cadre tactile. Performance et durabilite.",
     pitch: '0.4 - 1.2mm',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2024/05/vds-complete-163-uhd.jpg',
   },
   {
     name: 'TVF',
     category: 'Cabinet',
     description: "SMD milieu de gamme offrant un excellent rapport qualite/prix pour tous les projets.",
     pitch: '0.7 - 1.5mm',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2022/05/tvf-mural.png',
   },
   {
     name: 'DLP',
     category: 'Cabinet',
     description: "SMD haut de gamme fabrique en Europe. La qualite premium pour les projets exigeants.",
     pitch: '0.7 - 1.2mm',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2023/07/DirectLight-Pro-Complete-Product-Page-Header-e1688644198507.png',
   },
   {
     name: 'LUW',
     category: 'Outdoor',
     description: "Pitch ultra-fin pour l'exterieur. Des images eclatantes meme en plein soleil.",
     pitch: '2.5 - 6mm',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=340&fit=crop&q=80',
+    image: 'https://complete.leyard.fr/wp-content/uploads/2024/06/Planar_Luminate-Ultra-W-Complete_145.png',
   },
 ];
 ---
@@ -60,7 +60,7 @@ const products = [
       {products.map(product => (
         <div class="product-card">
           <div class="card-image">
-            <img src={product.image} alt={product.name} loading="lazy" />
+            <img src={product.image} alt={`Leyard ${product.name}`} loading="lazy" />
             <span class="card-category">{product.category}</span>
           </div>
           <div class="card-body">
@@ -114,39 +114,36 @@ const products = [
 
   .card-image {
     position: relative;
-    overflow: hidden;
+    background: #f5f5f5;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
   }
 
   .card-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: contain;
     display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .product-card:hover .card-image img {
-    transform: scale(1.03);
   }
 
   .card-image .card-category {
     position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
+    top: 0.6rem;
+    left: 0.6rem;
     font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #fff;
     padding: 0.2rem 0.6rem;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: var(--radius-sm);
   }
 
-  .card-body {
-    padding: 1.25rem;
-  }
+  .card-body { padding: 1.25rem; }
 
   .card-top {
     display: flex;
@@ -185,23 +182,15 @@ const products = [
     transition: gap var(--transition-fast);
   }
 
-  .card-link:hover {
-    gap: 0.55rem;
-  }
+  .card-link:hover { gap: 0.55rem; }
 
-  .products-cta {
-    text-align: center;
-  }
+  .products-cta { text-align: center; }
 
   @media (max-width: 1024px) {
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 640px) {
-    .products-grid {
-      grid-template-columns: 1fr;
-    }
+    .products-grid { grid-template-columns: 1fr; }
   }
 </style>
