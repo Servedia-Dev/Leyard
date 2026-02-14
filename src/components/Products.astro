@@ -1,0 +1,246 @@
+---
+const products = [
+  {
+    name: 'Serie M',
+    category: 'All-in-One',
+    description: "Mur LED d'entree de gamme avec fonctions PIP integrees. Ideal pour les salles de reunion.",
+    features: ['PIP integre', 'Installation facile', 'Entree de gamme'],
+    icon: '01',
+    color: '#6C2BD9',
+  },
+  {
+    name: 'Serie URL',
+    category: 'All-in-One',
+    description: "Mur LED tactile avec processeur PIP premium. L'experience interactive ultime.",
+    features: ['Ecran tactile', 'PIP premium', 'Interactif'],
+    icon: '02',
+    color: '#06B6D4',
+  },
+  {
+    name: 'VDS (COB)',
+    category: 'Cabinet',
+    description: "Technologie COB de pointe avec option cadre tactile. Performance et durabilite.",
+    features: ['Technologie COB', 'Cadre tactile', 'Haute durabilite'],
+    icon: '03',
+    color: '#8B5CF6',
+  },
+  {
+    name: 'TVF',
+    category: 'Cabinet',
+    description: "SMD milieu de gamme offrant un excellent rapport qualite/prix pour tous les projets.",
+    features: ['SMD milieu de gamme', 'Polyvalent', 'Rapport qualite/prix'],
+    icon: '04',
+    color: '#22D3EE',
+  },
+  {
+    name: 'DLP',
+    category: 'Cabinet',
+    description: "SMD haut de gamme fabrique en Europe. La qualite premium pour les projets exigeants.",
+    features: ['Fabrique en UE', 'Haut de gamme', 'Premium SMD'],
+    icon: '05',
+    color: '#A78BFA',
+  },
+  {
+    name: 'LUW',
+    category: 'Outdoor',
+    description: "Pitch ultra-fin pour l'exterieur. Des images eclatantes meme en plein soleil.",
+    features: ['Ultra-fin pitch', 'Exterieur', 'Haute luminosite'],
+    icon: '06',
+    color: '#67E8F9',
+  },
+];
+---
+
+<section class="section products" id="produits">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Catalogue
+      </div>
+      <h2>Nos gammes <span class="gradient-text">d'ecrans LED</span></h2>
+      <p>
+        Des solutions completes incluant mecanique, cabinets, cables,
+        electronique, finitions et pieces de rechange.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      {products.map((product, i) => (
+        <div class="product-card" style={`--card-delay: ${i * 0.1}s; --card-color: ${product.color}`}>
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <span class="card-icon">{product.icon}</span>
+            <span class="card-category">{product.category}</span>
+          </div>
+          <h3 class="card-title">{product.name}</h3>
+          <p class="card-description">{product.description}</p>
+          <div class="card-features">
+            {product.features.map(f => (
+              <span class="feature-tag">{f}</span>
+            ))}
+          </div>
+          <a href="/produits" class="card-link">
+            En savoir plus
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="products-cta">
+      <a href="/produits" class="btn btn-primary">
+        Voir tout le catalogue
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    position: relative;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: inline-block;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .product-card {
+    position: relative;
+    padding: 2rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .product-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--card-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .product-card:hover .card-glow {
+    opacity: 0.1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-display);
+  }
+
+  .card-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    background: var(--gradient-glow);
+    border: 1px solid rgba(108, 43, 217, 0.15);
+    border-radius: 100px;
+    color: var(--color-primary-light);
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    transition: all var(--transition-fast);
+  }
+
+  .card-link:hover {
+    color: var(--color-accent-light);
+    gap: 0.6rem;
+  }
+
+  .products-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

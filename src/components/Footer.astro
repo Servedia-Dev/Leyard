@@ -1,0 +1,229 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  produits: [
+    { label: 'Colonnes All-in-One', href: '/produits#all-in-one' },
+    { label: 'Cabinets LED', href: '/produits#cabinets' },
+    { label: 'Solutions COB', href: '/produits#cob' },
+    { label: 'Outdoor', href: '/produits#outdoor' },
+  ],
+  entreprise: [
+    { label: 'À propos', href: '/a-propos' },
+    { label: 'Solutions', href: '/solutions' },
+    { label: 'Nos références', href: '/solutions#references' },
+    { label: 'Carrières', href: '/a-propos#carrieres' },
+  ],
+  support: [
+    { label: 'Contact', href: '/contact' },
+    { label: 'Support technique', href: '/contact' },
+    { label: 'Documentation', href: '/produits' },
+    { label: 'FAQ', href: '/contact#faq' },
+  ],
+};
+---
+
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+            <rect width="32" height="32" rx="6" fill="url(#footer-logo-gradient)"/>
+            <text x="6" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="white">L</text>
+            <defs>
+              <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                <stop offset="0%" stop-color="#6C2BD9"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>
+            <strong>LEYARD</strong>
+            <small>EUROPE</small>
+          </span>
+        </a>
+        <p class="footer-desc">
+          Solutions d'affichage LED innovantes pour professionnels.
+          Des ecrans sur mesure, de la conception a l'installation.
+        </p>
+        <div class="footer-contact-info">
+          <a href="mailto:france@leyardgroup.com">france@leyardgroup.com</a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Produits</h4>
+          {footerLinks.produits.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+        <div class="footer-col">
+          <h4>Entreprise</h4>
+          {footerLinks.entreprise.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          {footerLinks.support.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Leyard Europe. Tous droits reserves.</p>
+      <div class="footer-legal">
+        <a href="#">Mentions legales</a>
+        <a href="#">Politique de confidentialite</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    padding: 5rem 0 2rem;
+    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .footer-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(108, 43, 217, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-brand .logo strong {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    display: block;
+  }
+
+  .footer-brand .logo small {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+  }
+
+  .footer-contact-info a {
+    color: var(--color-primary-light);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-contact-info a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    padding: 0.3rem 0;
+    transition: all var(--transition-fast);
+  }
+
+  .footer-col a:hover {
+    color: var(--color-text);
+    transform: translateX(4px);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal a {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-legal a:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .footer-links-group {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,415 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Contactez Leyard Europe pour un devis personnalise ou une question technique.">
+
+  <section class="page-hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container">
+      <div class="badge">
+        <span class="dot"></span>
+        Parlons de votre projet
+      </div>
+      <h1>Contactez<br/><span class="gradient-text">notre equipe</span></h1>
+      <p class="page-hero-desc">
+        Un projet d'ecran LED ? Notre equipe basee en France
+        vous repond sous 24h.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstname">Prenom</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label for="lastname">Nom</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Dupont" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email professionnel</label>
+              <input type="email" id="email" name="email" placeholder="jean@entreprise.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Entreprise</label>
+              <input type="text" id="company" name="company" placeholder="Nom de votre entreprise" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Selectionnez un sujet</option>
+                <option value="devis">Demande de devis</option>
+                <option value="technique">Question technique</option>
+                <option value="partenariat">Partenariat</option>
+                <option value="sav">Service apres-vente</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Decrivez votre projet ou votre question..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Envoyer le message
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h3>Email</h3>
+            <p>Notre equipe vous repond sous 24h</p>
+            <a href="mailto:france@leyardgroup.com" class="info-link">france@leyardgroup.com</a>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Adresse</h3>
+            <p>Leyard Europe<br/>France</p>
+            <span class="info-detail">Bureau France</span>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3>Horaires</h3>
+            <p>Lundi - Vendredi</p>
+            <span class="info-detail">9h00 - 18h00 (CET)</span>
+          </div>
+
+          <div class="info-card highlight">
+            <h3>Besoin urgent ?</h3>
+            <p>
+              Pour les demandes de support technique urgentes,
+              contactez directement notre equipe par email
+              en precisant "URGENT" dans l'objet.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>Questions <span class="gradient-text">frequentes</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Quels sont les delais de livraison ?</h3>
+          <p>Les delais varient selon la gamme et la configuration choisies. Comptez generalement 4 a 8 semaines pour les gammes standard et 8 a 12 semaines pour les configurations sur mesure.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Proposez-vous l'installation ?</h3>
+          <p>Nos packages incluent tout le necessaire pour l'installation. Nous proposons egalement un service d'installation par nos techniciens certifies sur devis.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quelle est la garantie ?</h3>
+          <p>Tous nos produits sont garantis 2 ans minimum. Des extensions de garantie sont disponibles selon les gammes. Pieces de rechange incluses dans chaque package.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Comment choisir le bon pitch ?</h3>
+          <p>Le pitch ideal depend de la distance de visionnage et de la taille de l'ecran. Notre equipe technique vous accompagne pour determiner la configuration optimale pour votre espace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: 10rem 0 4rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-glow-1 {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 500px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(108, 43, 217, 0.1) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.07) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .page-hero .badge { margin-bottom: 1.5rem; }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: inline-block;
+  }
+
+  .page-hero-desc {
+    font-size: 1.15rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Contact grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Form */
+  .contact-form {
+    padding: 2.5rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(108, 43, 217, 0.1);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235C5C6F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Info cards */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .info-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .info-card.highlight {
+    background: var(--gradient-glow);
+    border-color: rgba(108, 43, 217, 0.2);
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-glow);
+    border: 1px solid rgba(108, 43, 217, 0.2);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    color: var(--color-primary-light);
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+    font-weight: 650;
+    margin-bottom: 0.35rem;
+    color: var(--color-text);
+  }
+
+  .info-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .info-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    transition: color var(--transition-fast);
+  }
+
+  .info-link:hover {
+    color: var(--color-accent-light);
+  }
+
+  .info-detail {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  /* FAQ */
+  .section-alt {
+    background: var(--color-bg-secondary);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    padding: 1.75rem;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+    font-weight: 650;
+    margin-bottom: 0.6rem;
+    color: var(--color-text);
+  }
+
+  .faq-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.textContent = 'Message envoye !';
+      btn.setAttribute('disabled', 'true');
+      setTimeout(() => {
+        btn.textContent = 'Envoyer le message';
+        btn.removeAttribute('disabled');
+        (form as HTMLFormElement).reset();
+      }, 3000);
+    }
+  });
+</script>
