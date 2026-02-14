@@ -5,36 +5,42 @@ const products = [
     category: 'All-in-One',
     description: "Colonne LED d'entree de gamme avec fonctions PIP integrees. Ideale pour les salles de reunion.",
     pitch: '0.9 - 2.5mm',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=340&fit=crop&q=80',
   },
   {
     name: 'Serie URL',
     category: 'All-in-One',
     description: "Colonne LED tactile avec processeur PIP premium. L'experience interactive ultime.",
     pitch: '0.9 - 1.8mm',
+    image: 'https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=340&fit=crop&q=80',
   },
   {
     name: 'VDS (COB)',
     category: 'Cabinet',
     description: "Technologie COB de pointe avec option cadre tactile. Performance et durabilite.",
     pitch: '0.4 - 1.2mm',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=340&fit=crop&q=80',
   },
   {
     name: 'TVF',
     category: 'Cabinet',
     description: "SMD milieu de gamme offrant un excellent rapport qualite/prix pour tous les projets.",
     pitch: '0.7 - 1.5mm',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=340&fit=crop&q=80',
   },
   {
     name: 'DLP',
     category: 'Cabinet',
     description: "SMD haut de gamme fabrique en Europe. La qualite premium pour les projets exigeants.",
     pitch: '0.7 - 1.2mm',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=340&fit=crop&q=80',
   },
   {
     name: 'LUW',
     category: 'Outdoor',
     description: "Pitch ultra-fin pour l'exterieur. Des images eclatantes meme en plein soleil.",
     pitch: '2.5 - 6mm',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=340&fit=crop&q=80',
   },
 ];
 ---
@@ -53,18 +59,23 @@ const products = [
     <div class="products-grid">
       {products.map(product => (
         <div class="product-card">
-          <div class="card-header">
+          <div class="card-image">
+            <img src={product.image} alt={product.name} loading="lazy" />
             <span class="card-category">{product.category}</span>
-            <span class="card-pitch">Pitch : {product.pitch}</span>
           </div>
-          <h3 class="card-title">{product.name}</h3>
-          <p class="card-description">{product.description}</p>
-          <a href="/produits" class="card-link">
-            En savoir plus
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <div class="card-body">
+            <div class="card-top">
+              <h3 class="card-title">{product.name}</h3>
+              <span class="card-pitch">{product.pitch}</span>
+            </div>
+            <p class="card-description">{product.description}</p>
+            <a href="/produits" class="card-link">
+              En savoir plus
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       ))}
     </div>
@@ -89,54 +100,79 @@ const products = [
   }
 
   .product-card {
-    padding: 1.75rem;
     background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    transition: border-color var(--transition-base);
+    overflow: hidden;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
   }
 
   .product-card:hover {
     border-color: var(--color-primary-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+  .card-image {
+    position: relative;
+    overflow: hidden;
   }
 
-  .card-category {
-    font-size: 0.72rem;
+  .card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .card-image img {
+    transform: scale(1.03);
+  }
+
+  .card-image .card-category {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--color-text-muted);
+    color: #fff;
     padding: 0.2rem 0.6rem;
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border-light);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
     border-radius: var(--radius-sm);
   }
 
-  .card-pitch {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-primary);
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
   }
 
   .card-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 0.6rem;
     color: var(--color-text);
   }
 
+  .card-pitch {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
   .card-description {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
   }
 
   .card-link {

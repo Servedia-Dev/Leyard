@@ -3,18 +3,22 @@ const solutions = [
   {
     title: 'Salles de reunion',
     description: "Ecrans LED interactifs pour des presentations percutantes et des visioconferences immersives.",
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop&q=80',
   },
   {
     title: 'Retail & Affichage',
     description: "Murs d'images LED grand format haute resolution pour capter l'attention de vos clients.",
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&q=80',
   },
   {
     title: 'Evenementiel',
     description: "Ecrans geants pour vos evenements, concerts et salons. Impact visuel garanti.",
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop&q=80',
   },
   {
     title: 'Corporate & Lobby',
     description: "Modernisez vos espaces d'accueil avec des affichages dynamiques et elegants.",
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop&q=80',
   },
 ];
 ---
@@ -33,14 +37,19 @@ const solutions = [
     <div class="solutions-grid">
       {solutions.map(solution => (
         <div class="solution-card">
-          <h3>{solution.title}</h3>
-          <p>{solution.description}</p>
-          <a href="/solutions" class="solution-link">
-            Decouvrir
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <div class="solution-image">
+            <img src={solution.image} alt={solution.title} loading="lazy" />
+          </div>
+          <div class="solution-body">
+            <h3>{solution.title}</h3>
+            <p>{solution.description}</p>
+            <a href="/solutions" class="solution-link">
+              Decouvrir
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       ))}
     </div>
@@ -55,25 +64,46 @@ const solutions = [
   }
 
   .solution-card {
-    padding: 2rem;
     background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    transition: border-color var(--transition-base);
+    overflow: hidden;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
   }
 
   .solution-card:hover {
     border-color: var(--color-primary-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 
-  .solution-card h3 {
+  .solution-image {
+    overflow: hidden;
+  }
+
+  .solution-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .solution-card:hover .solution-image img {
+    transform: scale(1.03);
+  }
+
+  .solution-body {
+    padding: 1.5rem;
+  }
+
+  .solution-body h3 {
     font-size: 1.1rem;
     font-weight: 650;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--color-text);
   }
 
-  .solution-card p {
+  .solution-body p {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
